@@ -8,9 +8,12 @@ main()
 	P1OUT = 0x8;
 	P1DIR = 1;
 	
-	while (P1IN & 0x8) {
-		;
+	for (;;) {
+		P1OUT = 0x9;
+		while (P1IN & 0x8)
+			;
+		P1OUT = 0x8;
+		while (!(P1IN & 0x8))
+			;
 	}
-	
-	P1OUT = 1;
 }
