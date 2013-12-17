@@ -12,9 +12,9 @@ Peripheral::Peripheral(Periph unit)
 			pin_addr = BIT3;
 			break;
 		default:
-			extern void error();
+//			extern void error();
 			pin_addr = 0x0;
-			error();
+//			error();
 			break;
 	}
 }

@@ -31,7 +31,7 @@ main()
 {
     P1DIR = BIT0 | BIT6;
     P1OUT = 0;
-	TACCR0 = 0xffffh;
+	TACCR0 = 0xffff;
 	INIT_TA;
     while (1) {
 		while (_TAIFG == 0)

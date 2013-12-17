@@ -6,6 +6,11 @@ Switch::Switch(Periph unit) : Peripheral(unit)
 	P1DIR &= ~pin_addr; // Configure for input direction
 }
 
+bool Switch::is_not_pressed()
+{
+	return P1IN & pin_addr;
+}
+
 bool Switch::is_pressed()
 {
 	return !(P1IN & pin_addr); // High level on pin while button isn't pressed

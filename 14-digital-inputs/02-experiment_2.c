@@ -1,18 +1,21 @@
 #include <msp430.h>
-#include <intrinsics.h>
 #include <stdlib.h>
+
+#define LED1 BIT0
+#define LED2 BIT6
+#define TOGGLE(LED) (P1OUT ^= (LED))
 
 main()
 {
-	P1REN = 0x8;
-	P1OUT = 0x8;
-	P1DIR = 1;
+	TOGGLE(LED1);
 
 	for (;;) {
-		P1OUT = 0x9;
 		while (P1IN & 0x8)
 			;
-		P1OUT = 0x8;
+
+		TOGGLE(LED1);
+		TOGGLE(LED2);
+
 		while (!(P1IN & 0x8))
 			;
 	}
